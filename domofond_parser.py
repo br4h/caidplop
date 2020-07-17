@@ -11,7 +11,7 @@ for i in range(START_PAGE, MAX_PAGE + 1):
     pages.append(
         requests.get(f'https://www.domofond.ru/prodazha-uchastkizemli-izhevsk-c2017?Page={i}', headers=HEADERS)
     )
-
+    print(i)
 data = {}  # словарь входных данных
 counter = 1
 
@@ -19,20 +19,25 @@ for response in pages:
     soup = bs(response.content, 'html.parser')
     items = soup.findAll('a', 'long-item-card__item___ubItG search-results__itemCardNotFirst___3fei6')[1:]
     for el in items:
-        response_nested = requests.get(f'https://www.domofond.ru{el["href"]}', headers=HEADERS)
+        response_nested = requests.get(f'https://www.domofond.ru{el["href"]}',
+                                       headers=HEADERS)
         soup_nested = bs(response_nested.content, 'html.parser')
         items_nested = soup_nested.findAll('div', 'detail-information__row___29Fu6')
 
         # ОЦЕНКА РАЙОНА
         ratings = {}
-        for rating in soup_nested.findAll('div', 'area-rating__row___3y4HH'):
-            ratings[rating.find('div', 'area-rating__label___2Y1bh').get_text(strip=True)] \
-                = rating.find('div', 'area-rating__score___3ERQc').get_text(strip=True)
+        try:
+            for rating in soup_nested.findAll('div', 'area-rating__row___3y4HH'):
+                ratings[rating.find('div', 'area-rating__label___2Y1bh').get_text(strip=True)] \
+                    = rating.find('div', 'area-rating__score___3ERQc').get_text(strip=True)
+        except Exception as e:
+            print(e)
+            continue
 
         for el_nested in items_nested:
             params = el_nested.get_text(strip=True).split(':')
             if params[0] == 'Цена' or params[0] == 'Расстояние от центра' or params[0] == 'Площадь':
-                data[params[0]] = data[params[1]]
+                data[params[0]] = params[1]
 
         try:
             price = data['Цена'].replace('₽', '').replace(' ', '')
@@ -47,7 +52,7 @@ for response in pages:
                 counter += 1
                 data.clear()
                 ratings.clear()
-        except IndexError:
+        except Exception:
             data.clear()
             ratings.clear()
-            continue
+            print('*')
