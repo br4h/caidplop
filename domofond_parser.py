@@ -41,7 +41,7 @@ for response in pages:
 
         try:
             price = data['Цена'].replace('₽', '').replace(' ', '')
-            area = data['Площадь'].replace('соток', 'сот')
+            area = data['Площадь'].replace('соток', 'сот').replace('сотки', 'сот')
             distance = data['Расстояние от центра']
 
             with open('domofond_parser.txt', 'a', encoding='utf-8') as f:
