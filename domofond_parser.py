@@ -30,8 +30,8 @@ for response in pages:
             for rating in soup_nested.findAll('div', 'area-rating__row___3y4HH'):
                 ratings[rating.find('div', 'area-rating__label___2Y1bh').get_text(strip=True)] \
                     = rating.find('div', 'area-rating__score___3ERQc').get_text(strip=True)
-        except AttributeError as e:
-            print(e)
+        except AttributeError:
+            print('Stuff')
             continue
 
         for el_nested in items_nested:
