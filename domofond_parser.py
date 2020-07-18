@@ -1,15 +1,15 @@
 from bs4 import BeautifulSoup as bs
 import requests
-
+from fake_useragent import UserAgent
 HEADERS = {
-    'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.101 YaBrowser/20.7.0.894 Yowser/2.5 Safari/537.36"
+    'User-Agent': UserAgent(verify_ssl=False).chrome
 }
-
 START_PAGE, MAX_PAGE = 1, 77
 pages = []
 for i in range(START_PAGE, MAX_PAGE + 1):
     pages.append(
-        requests.get(f'https://www.domofond.ru/prodazha-uchastkizemli-izhevsk-c2017?Page={i}', headers=HEADERS)
+        requests.get(f'https://www.domofond.ru/prodazha-uchastkizemli-izhevsk-c2017?Page={i}',
+                     headers=HEADERS)
     )
     print(i)
 data = {}  # словарь входных данных
@@ -46,7 +46,7 @@ for response in pages:
 
             with open('domofond_parser.txt', 'a', encoding='utf-8') as f:
                 f.write(
-                    f'Площадь:{area};Расстояниедогорода:{distance};Цена:{price};{";".join([f"{x}: {y}" for x, y in ratings.items()])}\n'
+                    f'Площадь:{area};Расстояниедогорода:{distance};Цена:{price};{";".join([f"{x}: {y}" for x, y in ratings.items()])};\n'
                 )
                 print(f'записан номер {counter}')
                 counter += 1
