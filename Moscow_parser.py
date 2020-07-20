@@ -59,7 +59,7 @@ def domofond_parser(start_page, end_page, page_counter=True, _headers=None):
 
             with open('new_domofond_parser.txt', 'a', encoding='utf-8') as f:
                 f.write(
-                    f'Площадь:{area};Расстояниедогорода:{proximity};Цена:{price};{";".join([f"{x}: {y}" for x, y in ratings.items()])};\n '
+                    f'Площадь:{area};Расстояниедогорода:{proximity};Цена:{price};{";".join([f"{x}: {y}" for x, y in ratings.items()])};\n'
                 )
                 print(f'записан номер {counter}')
             counter += 1
