@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup as bs
 import requests
 import re
 from fake_useragent import UserAgent
+import additional_data
 
 HEADERS = {
     'User-Agent': UserAgent(verify_ssl=False).chrome
