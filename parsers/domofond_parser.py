@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup as bs
 import requests
 import re
 from fake_useragent import UserAgent
-import additional_data
+from NeuroLand import additional_data
 
 HEADERS = {
     'User-Agent': UserAgent(verify_ssl=False).chrome
@@ -90,8 +90,8 @@ def get_data_by_link(url: str):
 
     # Оценка района
     ratings = {}
-    void_ratings = {'ЖКХ': '3.0', 'Транспорт': '3.0', 'Экология': '3.0'}
-    dummy_response = f'Площадь:{area};Расстояниедогорода:{proximity};Цена:{price};{";".join([f"{x}: {y}" for x, y in void_ratings.items()])};\n'
+    void_ratings = additional_data.get_average_from_file()
+    dummy_response = f'Площадь:{area};Расстояниедогорода:{proximity};Цена:{price};{void_ratings};\n'
     try:
         for rating in soup_nested.findAll('div', 'area-rating__row___3y4HH'):
             ratings[rating.find('div', 'area-rating__label___2Y1bh').get_text()] \
@@ -106,4 +106,4 @@ def get_data_by_link(url: str):
 
 
 if __name__ == "__main__":
-    domofond_parser(1660, 1690)  # всё сделано, конец - 1650
+    domofond_parser(1, 1650) # всё сделано, конец - 1650
