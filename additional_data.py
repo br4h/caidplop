@@ -9,8 +9,19 @@ def get_train_data(filename='moskow_results', start=0):
 
 
 def get_average(filename='MOSCOW_PARSER'):
+    data = [
+        'Эколгоия',
+        'Чистота',
+        'ЖКХ',
+        'Соседи',
+        'Условия для детей',
+        'Спорт и отдых',
+        'Магазины',
+        'Транспорт',
+        'Безопасность',
+        'Уровень жизни']
     average = [0 for i in range(9)]
-    amount = 1  # 7268
+    amount = 1
     with open(f'{filename}.txt', 'r', encoding='utf-8') as f:
         for i in f:
             amount += 1
@@ -19,11 +30,12 @@ def get_average(filename='MOSCOW_PARSER'):
                 average[j] += dictionary[j]
         for i in range(len(average)):
             average[i] = round(average[i] / amount, 1)
+            average[i] = f'{data[i]}: {average[i]}'
+        print(average)
     with open('average_values.txt', 'w', encoding='utf-8') as f:
-        f.write(','.join(list(map(str, average))))
+        f.write(';'.join(list(map(str, average))))
 
 
 def get_average_from_file():
-    with open('average_values.txt', 'r') as f:
+    with open('average_values.txt', 'r', encoding='utf-8') as f:
         return f.read()
-
