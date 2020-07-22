@@ -1,7 +1,7 @@
 import re
 
 
-def get_train_data(filename='results/moskow_results', start=0):
+def get_train_data(filename='results/moscow_results', start=0):
     data, price = [], []
     with open(f'{filename}.txt', 'r', encoding='utf8') as f:
         for line in f.readlines()[start:]:
@@ -18,7 +18,8 @@ def get_train_data(filename='results/moskow_results', start=0):
                                  else int(re.sub(r'[А-я]', '', not_converted[i].replace('Вчертегорода', '0'))))
             data.append(to_append)
             land_price = int(all_data[2].split(':')[1])
-            price.append(round(float(land_price / get_maximum()), 4) if land_price != get_maximum() else 0.99)
+            # print(round(float(land_price / get_maximum()), 8))
+            price.append(round(land_price / get_maximum(), 4) if land_price < get_maximum() else 0.9)
     return data, price
 
 
@@ -62,7 +63,7 @@ def get_maximum():
         with open('results/maximum.txt', 'r') as f:
             return int(f.readline())
     except FileNotFoundError:
-        with open('results/moskow_results.txt', 'r', encoding='utf-8') as f:
+        with open('results/moscow_results.txt', 'r', encoding='utf-8') as f:
             for elem in f.readlines():
                 current = int(elem.split(';')[2].split(':')[1])
                 if current > maximum:
