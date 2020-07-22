@@ -36,14 +36,10 @@
      </rect>
     </property>
     <property name="cursor">
-     <cursorShape>ArrowCursor</cursorShape>
+     <cursorShape>IBeamCursor</cursorShape>
     </property>
     <property name="toolTip">
-     <string>Поддерживаются:
-domofond.ru
-avito.ru
-izhevsk.cian.ru
-</string>
+     <string/>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color:rgba(192, 192, 192, 0.5);
@@ -120,7 +116,10 @@ background-color: rgba(0, 0, 0, 0);</string>
      <item>
       <widget class="QLineEdit" name="lineEdit_3">
        <property name="styleSheet">
-        <string notr="true">font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+        <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
+       </property>
+       <property name="placeholderText">
+        <string>0</string>
        </property>
       </widget>
      </item>
@@ -141,6 +140,9 @@ background-color: rgba(0, 0, 0, 0);</string>
       <widget class="QLineEdit" name="lineEdit_4">
        <property name="styleSheet">
         <string notr="true">font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
+       </property>
+       <property name="placeholderText">
+        <string>0</string>
        </property>
       </widget>
      </item>
@@ -284,76 +286,70 @@ border: none</string>
      </item>
     </layout>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>539</y>
-      <width>20</width>
-      <height>20</height>
+      <y>405</y>
+      <width>31</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="toolTip">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:'JetBrains Mono';&quot;&gt;1. Плохо&lt;br/&gt;2. Сойдёт&lt;br/&gt;3. Нормально&lt;br/&gt;4. Хорошо&lt;br/&gt;5. Отлично &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-radius: 10px;
-font: 75 10pt &quot;MS Shell Dlg 2&quot;;
-color:rgb(31, 115, 30);
-border: 2px solid rgb(31, 115, 30);
-background-color:white</string>
+     <string notr="true"/>
     </property>
     <property name="text">
-     <string>?</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>qq.png</pixmap>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QLabel" name="label_9">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>409</y>
-      <width>20</width>
-      <height>20</height>
+      <y>474</y>
+      <width>31</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="toolTip">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:'JetBrains Mono';&quot;&gt;1. Плохо&lt;br/&gt;2. Сойдёт&lt;br/&gt;3. Нормально&lt;br/&gt;4. Хорошо&lt;br/&gt;5. Отлично &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
-    <property name="toolTipDuration">
-     <number>-1</number>
-    </property>
     <property name="styleSheet">
-     <string notr="true">border-radius: 10px;
-font: 75 10pt &quot;MS Shell Dlg 2&quot;;
-color:rgb(31, 115, 30);
-border: 2px solid rgb(31, 115, 30);
-background-color:white</string>
+     <string notr="true"/>
     </property>
     <property name="text">
-     <string>?</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>qq.png</pixmap>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QLabel" name="label_10">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>473</y>
-      <width>20</width>
-      <height>20</height>
+      <y>540</y>
+      <width>31</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="toolTip">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:'JetBrains Mono';&quot;&gt;1. Плохо&lt;br/&gt;2. Сойдёт&lt;br/&gt;3. Нормально&lt;br/&gt;4. Хорошо&lt;br/&gt;5. Отлично &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-radius: 10px;
-font: 75 10pt &quot;MS Shell Dlg 2&quot;;
-color:rgb(31, 115, 30);
-border: 2px solid rgb(31, 115, 30);
-background-color:white</string>
+     <string notr="true"/>
     </property>
     <property name="text">
-     <string>?</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>qq.png</pixmap>
     </property>
    </widget>
   </widget>
@@ -372,7 +368,13 @@ background-color:white</string>
     </property>
     <addaction name="actionAdvenced_Mode"/>
    </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+   </widget>
    <addaction name="menuMenu"/>
+   <addaction name="menuHelp"/>
   </widget>
   <action name="actionAdvenced_Mode">
    <property name="text">
@@ -380,6 +382,8 @@ background-color:white</string>
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="../nt.qrc"/>
+ </resources>
  <connections/>
 </ui>
