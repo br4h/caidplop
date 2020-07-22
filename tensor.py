@@ -12,12 +12,16 @@ def set_data_from_design(data, price):
 
 
 model = keras.models.Sequential([
-    keras.layers.Dense(128, activation='elu'),
+    keras.layers.Dense(128, activation='hard_sigmoid'),
     keras.layers.Dense(1)
 ])
 
 model.compile(optimizer='adam',
-              loss='sparse_categorical_crossentropy',
+              loss='mean_absolute_error',
               metrics=['accuracy'])
 
 model.fit(train_data, train_price, epochs=10)
+
+test_loss, test_acc = model.evaluate(test_data,  test_price, verbose=2)
+
+print('\nТочность на проверочных данных:', test_acc)
