@@ -39,7 +39,7 @@ class UI(QtWidgets.QMainWindow):
     def initUI(self):
         self.setFixedSize(800, 600)
         self.setWindowTitle("NeuroLand")
-
+        self.lineEdit.setText(' ')
         validate = QIntValidator(self)
         validate.setRange(1, 2 * 10 ** 9)
         self.lineEdit_3.setValidator(validate)
