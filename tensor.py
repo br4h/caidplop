@@ -12,15 +12,20 @@ def set_data_from_design(data, price):
 
 
 model = keras.models.Sequential([
-    keras.layers.Dense(128, activation='hard_sigmoid'),
+    keras.layers.Dense(12, activation='relu'),
+    keras.layers.Dropout(0.5),
+    keras.layers.Dense(7, activation='relu'),
+    keras.layers.Dropout(0.5),
     keras.layers.Dense(1)
 ])
 
 model.compile(optimizer='adam',
-              loss='mean_absolute_error',
+              loss='mse',
               metrics=['accuracy'])
 
-model.fit(train_data, train_price, epochs=10)
+model.fit(x=train_data, y=train_price,
+          validation_data=(test_data, test_price),
+          batch_size=128, epochs=3000)
 
 test_loss, test_acc = model.evaluate(test_data,  test_price, verbose=2)
 
