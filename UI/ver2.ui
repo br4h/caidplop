@@ -19,7 +19,6 @@
   <property name="styleSheet">
    <string notr="true">QMainWindow{
 	background-image: url(&quot;C:/Programming/Python/NeuroLand/xd.jpg&quot;);
-	/*background-color: qlineargradient(spread:pad, x1:0.210227, y1:0.87, x2:0.977318, y2:0, stop:0.193182 rgba(255, 146, 0, 255), stop:1 rgba(255, 255, 255, 255));*/
 }</string>
   </property>
   <property name="unifiedTitleAndToolBarOnMac">
@@ -45,6 +44,9 @@
      <string notr="true">background-color:rgba(192, 192, 192, 0.5);
 font: 75 12pt &quot;MS Shell Dlg 2&quot;;
 border-radius: 11px;</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
     </property>
     <property name="placeholderText">
      <string> Введите ссылку на земельный участок</string>
@@ -296,7 +298,7 @@ border: none</string>
      </rect>
     </property>
     <property name="toolTip">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:'JetBrains Mono';&quot;&gt;1. Плохо&lt;br/&gt;2. Сойдёт&lt;br/&gt;3. Нормально&lt;br/&gt;4. Хорошо&lt;br/&gt;5. Отлично &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:'JetBrains Mono';&quot;&gt;1. Отсутствие общественного транспорта и удаленность от шоссе&lt;br/&gt;2. Непосредсвтенная близость к автомагистрали&lt;br/&gt;3. Наличие остановок общественного транспорта, транпорт ходит в интервале 1 часа&lt;br/&gt;4. Есть все виды транспорта, приезжающих в интервале 15 минут&lt;br/&gt;5. Наличие всех видов транспорта, приезжающих в интервале 5 и менее минут&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
      <string notr="true"/>
@@ -318,7 +320,7 @@ border: none</string>
      </rect>
     </property>
     <property name="toolTip">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:'JetBrains Mono';&quot;&gt;1. Плохо&lt;br/&gt;2. Сойдёт&lt;br/&gt;3. Нормально&lt;br/&gt;4. Хорошо&lt;br/&gt;5. Отлично &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:'JetBrains Mono';&quot;&gt;1. Загрязнённая местность, близость к заводам или к ЭС&lt;br/&gt;2. Наличие субботников, близоть к лесу&lt;br/&gt;3. Небольшое количество загрязнённых участков, наличие мусорных баков&lt;br/&gt;4. Территория не загрязнена, наличие дворников&lt;br/&gt;5. Чистая территория, удалённость от заводов и ЭС, большое количество деревьев и растений&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
      <string notr="true"/>
@@ -340,7 +342,7 @@ border: none</string>
      </rect>
     </property>
     <property name="toolTip">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:'JetBrains Mono';&quot;&gt;1. Плохо&lt;br/&gt;2. Сойдёт&lt;br/&gt;3. Нормально&lt;br/&gt;4. Хорошо&lt;br/&gt;5. Отлично &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:'JetBrains Mono';&quot;&gt;1. Отсутствие коммуникации&lt;br/&gt;2. Наличие холодной, горячей воды, газа, происходят частые перебои работы (нав ремя отключается горячая вода)&lt;br/&gt;3. Наличие холодной, горячей воды, газа, происходят частые перебои работы, но есть быстрый отклик работников на поломки&lt;br/&gt;4. Присутствует обычные услуги ЖКХ, по типу, уборка двора и его ремонт, наличие мусорных баков, мусоровоза и т.д. &lt;br/&gt;5. Присутствуют все необходимые удобства: происходят собрания жильцов домов, дворники, присутсвует быстрый отклик на поломки и т.д.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="styleSheet">
      <string notr="true"/>
