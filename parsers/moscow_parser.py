@@ -57,7 +57,7 @@ def domofond_parser(start_page, end_page, page_counter=True, _headers=None):
             price = re.sub(r'[₽ ]', '', price)
             area = re.sub(r'сот..', 'сот', area)
 
-            with open('moskow_results.txt', 'a', encoding='utf-8') as f:
+            with open('moscow_results.txt', 'a', encoding='utf-8') as f:
                 f.write(
                     f'Площадь:{area};Расстояниедогорода:{proximity};Цена:{price};{";".join([f"{x}: {y}" for x, y in ratings.items()])};\n '
                 )
