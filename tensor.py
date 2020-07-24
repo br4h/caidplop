@@ -1,10 +1,11 @@
 from __future__ import absolute_import, division, print_function, unicode_literals
 from additional_data import get_train_data
 from tensorflow import keras
+import numpy as np
 
 # На обучение 13000 данных, на проверку 2000 данных
 (train_data, train_price), (test_data, test_price) = get_train_data(end=13000), get_train_data(start=13000)
-
+print(test_data)
 
 def set_data_from_design(data, price):
     global train_data, train_price
@@ -30,5 +31,7 @@ model.fit(x=train_data, y=train_price,
           batch_size=128, epochs=500)
 
 test_loss, test_acc = model.evaluate(test_data,  test_price, verbose=2)
+print('\n\n\n')
+print(float(model.predict([[10, 2, 3.5, 3.1, 2.9, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0]])))
 
 print('\nТочность на проверочных данных:', test_acc)
