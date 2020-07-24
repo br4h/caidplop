@@ -1,10 +1,10 @@
 import re
 
 
-def get_train_data(filename='results/moscow_results', start=0):
+def get_train_data(filename='results/moscow_results', start=0, end=13000):
     data, price = [], []
     with open(f'{filename}.txt', 'r', encoding='utf8') as f:
-        for line in f.readlines()[start:]:
+        for line in f.readlines()[start:end + 1]:
             all_data = line.split(';')[:-1]
             if ',' in all_data[1]:
                 all_data[1] = all_data[1].split(',')[0]
@@ -19,7 +19,7 @@ def get_train_data(filename='results/moscow_results', start=0):
             data.append(to_append)
             land_price = int(all_data[2].split(':')[1])
             # print(round(float(land_price / get_maximum()), 8))
-            price.append(round(land_price / get_maximum(), 4) if land_price < get_maximum() else 0.9)
+            price.append(round(land_price / get_maximum(), 2) if land_price < get_maximum() else 0.9)
     return data, price
 
 
