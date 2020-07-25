@@ -44,7 +44,7 @@ def domofond_parser(start_page, end_page, page_counter=True, _headers=None):
             try:
                 for rating in soup_nested.findAll('div', 'area-rating__row___3y4HH'):
                     ratings[rating.find('div', 'area-rating__label___2Y1bh').get_text()] \
-                        = rating.find('div', 'area-rating__score___3ERQc').get_text()
+                        = rating.find('div', 'area-rating__score___3ERQc').get_text().replace(',', '.')
             except AttributeError:
                 print('Оценка отсутствует')
                 continue
@@ -53,13 +53,13 @@ def domofond_parser(start_page, end_page, page_counter=True, _headers=None):
                 continue
 
             area, price = [detail.get_text().split(':')[1] for detail in detail_information[2:4]]
-            proximity = detail_information[1].get_text().split(':')[1].split(', ')[0]
+            proximity = detail_information[1].get_text().split(':')[1].split(', ')[0].replace('км', '')
             price = re.sub(r'[₽ ]', '', price)
-            area = re.sub(r'сот..', 'сот', area)
+            area = re.sub(r'сот..', '', area)
 
-            with open('moscow_results.txt', 'a', encoding='utf-8') as f:
+            with open('moscow_results.csv', 'a', encoding='utf-8') as f:
                 f.write(
-                    f'Площадь:{area};Расстояниедогорода:{proximity};Цена:{price};{";".join([f"{x}: {y}" for x, y in ratings.items()])};\n '
+                    f'{area},{proximity},{price},{",".join([f"{y}" for x, y in ratings.items()])}\n'.replace(' ', '')
                 )
                 print(f'записан номер {counter}')
             counter += 1
@@ -67,4 +67,4 @@ def domofond_parser(start_page, end_page, page_counter=True, _headers=None):
 
 
 if __name__ == "__main__":
-    domofond_parser(694, 1650)  # страница 694
+    domofond_parser(1, 1650)  # страница 694
